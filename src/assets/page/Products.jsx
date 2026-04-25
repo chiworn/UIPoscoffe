@@ -174,7 +174,7 @@ export default function Products() {
   //Fillter
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      const category = product.category_name?.trim().toLowerCase();
+      const category = product.category?.category_name?.trim().toLowerCase();
       const matchesCategory =
         selectedCategory === "all" || category === selectedCategory;
 
@@ -351,7 +351,9 @@ export default function Products() {
       </div>
 
       <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
-        <h2 className="text-lg font-bold mb-4">Add New Product</h2>
+        <h2 className="text-lg font-bold mb-4">
+          {isEdit ? "Edit Product" : "Add New Product"}
+        </h2>
 
         {/* Product Name English */}
         <input
@@ -410,7 +412,6 @@ export default function Products() {
           </option>
 
           {categories
-            .filter((c) => c.id !== 1)
             .map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
@@ -478,7 +479,6 @@ export default function Products() {
             loading ? "bg-gray-400 cursor-not-allowed" : "bg-amber-800"
           }`}
         >
-          category_name
           <Plus size={16} className="inline-block mr-2" />
           {loading
             ? isEdit

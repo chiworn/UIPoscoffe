@@ -32,7 +32,11 @@ export default function CategoryTabs({ selected, onSelect }) {
           description: cat.description,
           icon: iconMap[cat.category_name.toLowerCase()] || Package
         }));
-        setCategories(mapped);
+        // Add "All" category at the beginning
+        setCategories([
+          { id: "all", name: "All", description: "All categories", icon: Package },
+          ...mapped
+        ]);
       })
       .catch((err) => {
         console.error("Failed to fetch categories:", err);
