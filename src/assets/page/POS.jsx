@@ -111,10 +111,11 @@ const POS = () => {
       0
     );
     
-    const cashierId = localStorage.getItem("ID");
+    const storedId = localStorage.getItem("ID");
+    const cashierId = storedId ? Number(storedId) : 1;
     
      await api.post("/saller", {
-      cashier_id: cashierId || 1, 
+      cashier_id: cashierId,
       items_id: itemIds,
     });
 
@@ -129,7 +130,7 @@ const POS = () => {
     setCart([]);
 
   }catch (error) {
-    console.error(error);
+    console.error("Checkout failed:", error.response?.data || error);
     showToast("Failed to save order ❌");
   }
 };
