@@ -61,8 +61,10 @@ export default function POSHeader() {
         {/* User */}
         <div className="flex items-center gap-3">
           <div className="hidden sm:block text-right">
-            <p className="text-sm font-medium">Cashier</p>
-            <p className=" text-blue-600">Active</p>
+            <p className="text-sm font-medium">
+              {localStorage.getItem("user")?.replace(/"/g, "") || "Cashier"}
+            </p>
+            <p className=" text-blue-600 text-xs">Active</p>
           </div>
           <button className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary">
             <User className="h-5 w-5" />

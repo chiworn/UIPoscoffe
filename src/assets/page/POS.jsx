@@ -111,8 +111,10 @@ const POS = () => {
       0
     );
     
+    const cashierId = localStorage.getItem("ID");
+    
      await api.post("/saller", {
-      cashier_id: 1, 
+      cashier_id: cashierId || 1, 
       items_id: itemIds,
     });
 
