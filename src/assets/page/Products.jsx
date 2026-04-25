@@ -283,7 +283,7 @@ export default function Products() {
                 </td>
 
                 <td className=" py-3 text-left capitalize">
-                  {p.category.category_name}
+                  {p.category?.category_name || "No Category"}
                 </td>
 
                 <td className=" py-3 text-left font-mono">{p.price}៛</td>

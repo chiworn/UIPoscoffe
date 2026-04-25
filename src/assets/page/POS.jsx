@@ -1,7 +1,7 @@
 import React, { useState, useMemo,useEffect } from "react";
 import Cart from "../components/POS/Cart";
 import CategoryTabs from "../components/POS/CategoryTabs";
-import ProductCard from "../components/POS/ ProductCard.jsx";
+import ProductCard from "../components/POS/ProductCard.jsx";
 import api from "../../api/axios";
 
 // Simple toast function
